@@ -3,27 +3,27 @@
 <head>
 <meta charset="UTF-8">
  <meta property="og:type" content="website">
-<meta property="og:title" content="0rigin">
+<meta property="og:title" content="0">
 <meta property="og:locale" content="nl_NL">
 <meta name="robots" content="index, follow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="0rigin">
-<meta property="og:description" content="0rigin">
+<meta name="description" content="0 - A0Z">
+<meta property="og:description" content="0">
 <meta property="og:url" content="https://a0z.nl/">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/201962374?v=4&size=800">
 <meta name="theme-color" content="#000000">  
-<title>0rigin</title>
+<title>0</title>
 <link rel="icon" type="image/png" href="0.PNG">
 <link rel="manifest" href="manifest.json">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "VisualBusiness",
-  "name": "0rigin",
+  "name": "0",
   "alternateName": ["A0Z", "Zero", "0rigin", "Point"],
   "url": "https://a0z.nl/",
   "logo": "https://a0z.nl/0.PNG",
-  "description": "0rigin. The instinct of sensation created by A0Z.",
+  "description": "0. The instinct of sensation created by A0Z.",
   "sameAs": [
     "https://github.com/a0zai/0"
   ]
@@ -70,6 +70,75 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.about-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+.about-content {
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid var(--sense-green);
+    box-shadow: 0 0 30px rgba(178, 242, 187, 0.15);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 85%;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    color: #f0f0f0;
+    line-height: 1.8;
+}
+
+.about-content button {
+    background: none;
+    border: 1px solid var(--sense-green);
+    color: var(--sense-green);
+    padding: 8px 20px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.about-content button:hover {
+    background: var(--sense-green);
+    color: #000;
+    box-shadow: 0 0 20px var(--sense-green);
+}
+
+.about-trigger {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    background: none;
+    border: 1px solid var(--sense-green);
+    color: var(--sense-green);
+    padding: 10px 15px;
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+    z-index: 9999;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.about-trigger:hover {
+    opacity: 1;
+    box-shadow: 0 0 15px var(--sense-green);
+    background: rgba(178, 242, 187, 0.05);
 }
 .top-logo {
     position: absolute;
@@ -247,12 +316,24 @@ body.loaded {
 </h1>
 <div id="vanta-bg"></div> 
 <div id="particles-stars"></div>
+  <button class="about-trigger" onclick="toggleAbout()">[ 0 ]</button>
+<div id="about-overlay" class="about-overlay">
+    <div class="about-content">
+        <h2 style="color: var(--sense-green); text-shadow: 0 0 10px var(--sense-green);">0 — 0rigin</h2>
+        <p><strong>0</strong> is a high-end advanced definition by <strong>A0Z</strong>. It explores the intersection of <strong>zero design</strong>, <strong>3D web technology</strong>, and the <strong>instinct of sensation</strong>.</p>
+        <p>Crafted using <strong>Three.js</strong> and <strong>Vanilla JavaScript</strong>, this project aims to redefine how we perceive time in a digital space. No distractions, just <strong>0</strong> just Origin.</p>
+        <hr style="border: 0.1px solid #333; margin: 20px 0;">    
+        <p style="font-size: 0.8rem; opacity: 0.7;">Developed & Maintained by <span style="color: var(--sense-green);">0 Digital Research</span>.</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">Location: Netherlands | 2026</p>
+        <button onclick="toggleAbout()">[ CLOSE ]</button>
+    </div>
+</div>
 <div class="main-content">
-  <img src="0.PNG" alt="0rigin" class="top-logo"> 
+  <img src="0.PNG" alt="A0Z" class="top-logo"> 
   <div class="scene">
     <div class="clock-container">
         <div class="glass-cover"></div>
-        <div class="brand-name">0rigin</div>
+        <div class="brand-name">0</div>
         <div class="number n2"><div>12</div></div>
         <div class="number n3"><div>11</div></div>
         <div class="number n4"><div>10</div></div>
@@ -272,7 +353,7 @@ body.loaded {
     </div>
     <div class="tagline">The instinct 0f Sensation</div>
 </div>
-<div class="signature">0rigin</div>
+<div class="signature">0</div>
 <script>
 const hour = document.getElementById('hour');
 const minute = document.getElementById('minute'); 
@@ -341,6 +422,23 @@ window.addEventListener('load', () => {
 });
 </script>
 <script>
+function toggleAbout() {
+    const overlay = document.getElementById('about-overlay');
+    
+    if (overlay.style.display === 'flex') {
+        overlay.style.display = 'none';
+    } else {
+        overlay.style.display = 'flex';
+    }
+}
+
+window.onclick = function(event) {
+    const overlay = document.getElementById('about-overlay');
+    if (event.target == overlay) {
+        overlay.style.display = 'none';
+    }
+}
+
 const clock = document.querySelector('.clock-container');
 const scene = document.querySelector('.scene');
 let currentX = 0;
