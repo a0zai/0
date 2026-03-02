@@ -20,7 +20,7 @@
   "@context": "https://schema.org",
   "@type": "VisualBusiness",
   "name": "0",
-  "alternateName": ["A0Z", "Zero", "0rigin", "Point"],
+  "alternateName": ["A0Z", "Zero", "Origin", "Point"],
   "url": "https://a0z.nl/",
   "logo": "https://a0z.nl/0.PNG",
   "description": "0. The instinct of sensation created by A0Z.",
@@ -71,75 +71,6 @@ html, body {
     flex-direction: column;
     align-items: center;
 }
-
-.about-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    z-index: 10000;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.4s ease;
-}
-
-.about-content {
-    background: rgba(10, 10, 10, 0.9);
-    border: 1px solid var(--sense-green);
-    box-shadow: 0 0 30px rgba(178, 242, 187, 0.15);
-    padding: 40px;
-    border-radius: 20px;
-    max-width: 500px;
-    width: 85%;
-    text-align: center;
-    font-family: 'Courier New', monospace;
-    color: #f0f0f0;
-    line-height: 1.8;
-}
-
-.about-content button {
-    background: none;
-    border: 1px solid var(--sense-green);
-    color: var(--sense-green);
-    padding: 8px 20px;
-    cursor: pointer;
-    margin-top: 25px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.about-content button:hover {
-    background: var(--sense-green);
-    color: #000;
-    box-shadow: 0 0 20px var(--sense-green);
-}
-
-.about-trigger {
-    position: fixed;
-    top: 30px;
-    left: 30px;
-    background: none;
-    border: 1px solid var(--sense-green);
-    color: var(--sense-green);
-    padding: 10px 15px;
-    font-family: 'Courier New', monospace;
-    cursor: pointer;
-    z-index: 9999;
-    opacity: 0.5;
-    transition: all 0.3s ease;
-}
-
-.about-trigger:hover {
-    opacity: 1;
-    box-shadow: 0 0 15px var(--sense-green);
-    background: rgba(178, 242, 187, 0.05);
-}
 .top-logo {
     position: absolute;
     top: -120px;
@@ -151,7 +82,91 @@ html, body {
     pointer-events: none;
     filter: drop-shadow(0 0 15px rgba(255,255,255,0.3));
 }
+.about-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: grayscale(1) blur(15px);
+    -webkit-backdrop-filter: grayscale(1) blur(15px);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+}
 
+.about-content {
+    background: rgba(5, 5, 5, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 85%;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    color: #cccccc;
+    line-height: 1.8;
+}
+
+.about-content h2 {
+    color: #ffffff !important;
+    text-shadow: none !important;
+    letter-spacing: 12px;
+    font-weight: 300;
+}
+
+.about-content button {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 10px 25px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+}
+
+.about-content button:hover {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+.about-trigger {
+    background: none;
+    border: none;
+    color: var(--sense-green);
+    padding: 5px;
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+    z-index: 9999;
+    opacity: 0.6;
+    transition: all 0.4s ease;
+    position: relative;
+    margin: -100px 0 40px 0;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    outline: none;
+    animation: pulse-sense 4s infinite ease-in-out;
+}
+
+.about-trigger:hover {
+    opacity: 1;
+    text-shadow: 0 0 12px var(--sense-green), 0 0 25px rgba(178, 242, 187, 0.5);
+    transform: scale(1.05);
+    animation: none;
+}
+
+@keyframes pulse-sense {
+    0%, 100% { opacity: 0.4; text-shadow: 0 0 5px rgba(178, 242, 187, 0.2); }
+    50% { opacity: 0.8; text-shadow: 0 0 15px rgba(178, 242, 187, 0.6); }
+}
 .title {
     margin-bottom: 30px;
     font-size: 36px;
@@ -316,20 +331,20 @@ body.loaded {
 </h1>
 <div id="vanta-bg"></div> 
 <div id="particles-stars"></div>
-  <button class="about-trigger" onclick="toggleAbout()">[ 0 ]</button>
+<div class="main-content">
+  <img src="0.PNG" alt="A0Z" class="top-logo">
+      <button class="about-trigger" onclick="toggleAbout()"> 0 </button>
 <div id="about-overlay" class="about-overlay">
     <div class="about-content">
-        <h2 style="color: var(--sense-green); text-shadow: 0 0 10px var(--sense-green);">0 — 0rigin</h2>
-        <p><strong>0</strong> is a high-end advanced definition by <strong>A0Z</strong>. It explores the intersection of <strong>zero design</strong>, <strong>3D web technology</strong>, and the <strong>instinct of sensation</strong>.</p>
-        <p>Crafted using <strong>Three.js</strong> and <strong>Vanilla JavaScript</strong>, this project aims to redefine how we perceive time in a digital space. No distractions, just <strong>0</strong> just Origin.</p>
+        <h2 style="color: var(--sense-green); text-shadow: 0 0 10px var(--sense-green);">0</h2>
+        <p><strong>0</strong> is a high-end advanced definition by <strong>A0Z</strong>. It explores the intersection of <strong>zero design</strong>, <strong>Origin technology</strong>, and the <strong>instinct of sensation</strong>.</p>
+        <p>Crafted using <strong>123696321</strong> and <strong>366</strong>, this project aims to redefine how we perceive time in a digital space. No distractions, just <strong>0</strong> just Origin.</p>
         <hr style="border: 0.1px solid #333; margin: 20px 0;">    
-        <p style="font-size: 0.8rem; opacity: 0.7;">Developed & Maintained by <span style="color: var(--sense-green);">0 Digital Research</span>.</p>
-        <p style="font-size: 0.8rem; opacity: 0.7;">Location: Netherlands | 2026</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">Developed <> Maintained & Built by <span style="color: var(--sense-green);">A0Z</span>.</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">0</p>
         <button onclick="toggleAbout()">[ CLOSE ]</button>
     </div>
 </div>
-<div class="main-content">
-  <img src="0.PNG" alt="A0Z" class="top-logo"> 
   <div class="scene">
     <div class="clock-container">
         <div class="glass-cover"></div>
@@ -346,7 +361,7 @@ body.loaded {
         <div class="number n11"><div>3</div></div>
         <div class="number n12"><div>2</div></div>
         <div class="hand hour" id="hour">
-        <div class="n1">1</div>
+        <div class="n1">∞</div>
         </div>
         <div class="hand minute" id="minute"></div>
         <div class="hand second" id="second"></div>
@@ -368,7 +383,7 @@ function updateClock() {
     hour.style.transform = `translateX(-50%) rotate(${-h*30 + 30}deg)`;
     if (n1) {
         n1.style.transform = `translateX(-50%) rotate(${h*30 - 30}deg)`;
-        n1.innerText = "1";
+        n1.innerText = "∞";
         n1.style.fontWeight = '600';
         n1.style.letterSpacing = '2px';
         n1.style.fontSize = '18px';
