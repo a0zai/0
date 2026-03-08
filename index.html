@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
- <meta property="og:type" content="website">
-<meta property="og:title" content="0">
-<meta property="og:locale" content="nl_NL">
-<meta name="robots" content="index, follow">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="0">
-<meta property="og:description" content="0">
-<meta property="og:url" content="https://a0z.nl/">
-<meta property="og:image" content="https://avatars.githubusercontent.com/u/201962374?v=4&size=800">
-<meta name="theme-color" content="#000000">  
-<title>0</title>
-<link rel="icon" type="image/png" href="0.PNG">
-<link rel="manifest" href="manifest.json">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "VisualBusiness",
-  "name": "0",
-  "alternateName": ["A0Z", "Zero", "Origin", "Point"],
-  "url": "https://a0z.nl/",
-  "logo": "https://a0z.nl/0.PNG",
-  "description": "0. The instinct of sensation created by A0Z.",
-  "sameAs": [
-    "https://github.com/a0zai/0"
-  ]
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>0 | Origin</title>
+    <meta name="description" content="0 (Origin) is a digital experience redefining time and sensation. Developed by A0Z. Minimalism, precision, and the essence of zero.">
+    <meta name="keywords" content="0, Origin, A0Z, Zero, Digital Time, Minimalism, Web Art">
+    <meta name="author" content="A0Z">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="0 | Origin">
+    <meta property="og:description" content="The instinct of sensation. Explore the digital essence of zero.">
+    <meta property="og:url" content="https://a0z.nl/">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/201962374?v=4&size=800">
+    <meta property="og:locale" content="en_US"> <link rel="icon" type="image/png" href="0.PNG">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="manifest.json">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "0 | Origin",
+      "alternateName": ["A0Z", "Zero", "Origin", "Point", "0rigin"],
+      "url": "https://a0z.nl/",
+      "logo": "https://a0z.nl/0.PNG",
+      "description": "0 is a digital art project and clock that redefines the perception of time. Created by A0Z.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web",
+      "author": {
+        "@type": "Person",
+        "name": "A0Z"
+      }
+    }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
@@ -82,91 +86,142 @@ html, body {
     pointer-events: none;
     filter: drop-shadow(0 0 15px rgba(255,255,255,0.3));
 }
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
 .about-overlay {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.92);
-    backdrop-filter: grayscale(1) blur(15px);
-    -webkit-backdrop-filter: grayscale(1) blur(15px);
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: grayscale(1) blur(20px);
+    -webkit-backdrop-filter: grayscale(1) blur(20px);
     z-index: 10000;
     justify-content: center;
     align-items: center;
-    transition: all 0.4s ease;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.about-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .about-content {
-    background: rgba(5, 5, 5, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
-    padding: 40px;
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid rgba(178, 242, 187, 0.2);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+    padding: 35px 25px;
     border-radius: 20px;
-    max-width: 500px;
-    width: 85%;
+    max-width: 450px;
+    width: 88%;
     text-align: center;
     font-family: 'Courier New', monospace;
     color: #cccccc;
-    line-height: 1.8;
+    line-height: 1.6;
+    transform: translateY(30px);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.about-content h2 {
-    color: #ffffff !important;
-    text-shadow: none !important;
-    letter-spacing: 12px;
-    font-weight: 300;
+.about-overlay.active .about-content {
+    transform: translateY(0);
 }
 
-.about-content button {
+.ascii-wrapper {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.ascii-art {
+    font-size: 0.45rem;
+    line-height: 1.1;
+    color: var(--sense-green);
+    text-shadow: 0 0 10px rgba(178, 242, 187, 0.3);
+    margin: 0;
+    user-select: none;
+}
+
+.description-text p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.about-footer p {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.close-btn {
     background: none;
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: #ffffff;
-    padding: 10px 25px;
+    padding: 10px 30px;
     cursor: pointer;
-    margin-top: 25px;
+    margin-top: 20px;
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 3px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.about-content button:hover {
+.close-btn:hover {
     background: #ffffff;
     color: #000000;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
 }
 
 .about-trigger {
     background: none;
     border: none;
     color: var(--sense-green);
-    padding: 5px;
+    padding: 15px;
     font-family: 'Courier New', monospace;
     cursor: pointer;
     z-index: 9999;
-    opacity: 0.6;
+    opacity: 0.7;
     transition: all 0.4s ease;
     position: relative;
-    margin: -100px 0 40px 0;
-    font-size: 1.1rem;
+    margin: -120px 0 40px 0;
+    font-size: 1.4rem;
     letter-spacing: 4px;
     outline: none;
     animation: pulse-sense 4s infinite ease-in-out;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .about-trigger:hover {
     opacity: 1;
-    text-shadow: 0 0 12px var(--sense-green), 0 0 25px rgba(178, 242, 187, 0.5);
-    transform: scale(1.05);
-    animation: none;
+    transform: scale(1.1);
+    text-shadow: 0 0 15px var(--sense-green);
 }
 
 @keyframes pulse-sense {
-    0%, 100% { opacity: 0.4; text-shadow: 0 0 5px rgba(178, 242, 187, 0.2); }
-    50% { opacity: 0.8; text-shadow: 0 0 15px rgba(178, 242, 187, 0.6); }
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.05); }
 }
+
+@media (max-width: 480px) {
+    .ascii-art { font-size: 0.38rem; }
+    .about-content { padding: 25px 20px; }
+}
+
+
 .title {
     margin-bottom: 30px;
     font-size: 36px;
@@ -325,19 +380,15 @@ body.loaded {
 </style>
 </head>
 <body>
-    <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">
-  0rigin
-</h1>
-<div id="vanta-bg"></div> 
-<div id="particles-stars"></div>
+<h1 class="sr-only">0 | Origin - A Minimalist Digital Time Experience by A0Z</h1>
 <div class="main-content">
-  <img src="0.PNG" alt="0" class="top-logo">
-      <button class="about-trigger" onclick="toggleAbout()">0</button>
-<div id="about-overlay" class="about-overlay">
-    <div class="about-content">
-        <h2 style="color: #ffffff; letter-spacing: 8px; text-align: center; font-weight: 300; margin-bottom: 20px;">0</h2>
-<div style="display: flex; justify-content: center; width: 100%;">
-    <pre style="display: inline-block; text-align: left; color: var(--sense-green); font-family: 'Courier New', monospace; font-size: 0.48rem; line-height: 1.1; text-shadow: 0 0 8px rgba(178, 242, 187, 0.4); margin: 0; padding: 0; font-weight: bold;">
+    <img src="0.PNG" alt="Origin Project Logo" class="top-logo">
+    <button class="about-trigger" onclick="toggleAbout()" aria-label="Learn about the 0 project">0</button>
+    <div id="about-overlay" class="about-overlay" role="dialog" aria-modal="true">
+        <div class="about-content">
+            <h2 style="color: #ffffff; letter-spacing: 8px; text-align: center; font-weight: 300; margin-bottom: 20px;">0</h2>
+            <div class="ascii-wrapper">
+                <pre class="ascii-art">
    010101       Z      010101   
   0101010101    1    0101010101 
  0101010101010  2  0101010101010
@@ -351,13 +402,17 @@ body.loaded {
   010101        2        10101  
    01           1           10  
                 A                              
-    </pre>
-        <p>Crafted using <strong>0</strong>, this project aims to redefine how we perceive time in a digital space. No distractions, just <strong>0</strong> just Origin.</p>
-        <hr style="border: 0.1px solid #333; margin: 17px 0;">    
-        <p style="font-size: 0.6rem; opacity: 0.7;">Developed <> Maintained & Built by <span style="color: var(--sense-green);">A0Z</span>.</p>
-        <p style="font-size: 0.6rem; opacity: 0.7;">0</p>
-        <button onclick="toggleAbout()">[CLOSE]</button>
-    </div>
+                </pre>
+            </div>
+            <article class="description-text">
+                <p>Crafted using<strong>0</strong>, this project aims to redefine how we perceive <strong>time</strong> in a digital space. No distractions, just <strong>0</strong>, just <strong>Origin</strong>.</p>
+            </article>
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 17px 0;">    
+            <footer class="about-footer">
+                <p>Developed & Built by <span style="color: var(--sense-green); font-weight: bold;">A0Z</span>.</p>
+                <button class="close-btn" onclick="toggleAbout()">[X]</button>
+            </footer>
+        </div>
     </div>
 </div>
   <div class="scene">
@@ -454,27 +509,19 @@ window.addEventListener('load', () => {
 <script>
 function toggleAbout() {
     const overlay = document.getElementById('about-overlay');
-    
-    if (overlay.style.display === 'flex') {
-        overlay.style.display = 'none';
-    } else {
-        overlay.style.display = 'flex';
-    }
+    overlay.classList.toggle('active');
 }
-
 window.onclick = function(event) {
     const overlay = document.getElementById('about-overlay');
-    if (event.target == overlay) {
-        overlay.style.display = 'none';
+    if (event.target === overlay) {
+        overlay.classList.remove('active');
     }
 }
 
 const clock = document.querySelector('.clock-container');
 const scene = document.querySelector('.scene');
-let currentX = 0;
-let currentY = 0;
-let targetX = 0;
-let targetY = 0;
+let currentX = 0, currentY = 0, targetX = 0, targetY = 0;
+
 scene.addEventListener('mousemove', (e) => {
     const rect = scene.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -484,37 +531,35 @@ scene.addEventListener('mousemove', (e) => {
     targetY = (x - centerX) / centerX * 5; 
     targetX = -(y - centerY) / centerY * 6; 
 });
+
 scene.addEventListener('mouseleave', () => {
     targetX = 0;
     targetY = 0;
 });
+
 function animate3D() {
     currentX += (targetX - currentX) * 0.17;
     currentY += (targetY - currentY) * 0.14;
 
-    clock.style.transform = `
-        rotateX(${currentX}deg)
-        rotateY(${currentY}deg)
-    `;
-clock.style.filter = `
-    drop-shadow(${currentY}px ${currentX*2}px 60px rgba(0,0,0,0.6))
-`;
+    clock.style.transform = `rotateX(${currentX}deg) rotateY(${currentY}deg)`;
+    clock.style.filter = `drop-shadow(${currentY}px ${currentX*2}px 60px rgba(0,0,0,0.6))`;
     requestAnimationFrame(animate3D);
 }
 animate3D();
-let touchX = 0;
-let touchY = 0;
+let touchX = 0, touchY = 0;
 scene.addEventListener('touchstart', e => {
-    const t = e.touches[0];
-    touchX = t.clientX;
-    touchY = t.clientY;
-});
+    touchX = e.touches[0].clientX;
+    touchY = e.touches[0].clientY;
+}, { passive: true });
 scene.addEventListener('touchmove', e => {
-    const t = e.touches[0];
-    const dx = t.clientX - touchX;
-    const dy = t.clientY - touchY;
+    const dx = e.touches[0].clientX - touchX;
+    const dy = e.touches[0].clientY - touchY;
     targetY = dx * 0.45;
     targetX = -dy * 0.45;
+    if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+        if (e.cancelable) e.preventDefault();
+    }
+}, { passive: false 
 });
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./sw.js');
